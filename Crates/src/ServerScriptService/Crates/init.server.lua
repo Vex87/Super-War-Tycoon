@@ -11,10 +11,13 @@ local X_OFFSET = 100
 local Y_OFFSET = 20
 local Z_OFFSET = 100
 
+local MAX_POSSIBLE_REWARDS = 30
+
 -- // Variables \\ --
 
 local Debris = game:GetService("Debris")
 local Rewards = require(script.Rewards)
+local Remotes = game.ReplicatedStorage.Remotes
 local Crate = game.ServerStorage.Crate
 
 -- // Functions \\ --
@@ -23,9 +26,15 @@ function Touched(NewCrate, Obj)
     local p = game.Players:FindFirstChild(Obj.Parent.Name)
     if p then
         NewCrate:Destroy()
-        local Reward = Rewards.AllRewards[math.random(#Rewards.AllRewards)]
-        print(Reward, #Rewards.AllRewards)
-        Rewards.Functions[Rewards.Objects[Reward].Type](p, Reward)
+        local Reward = Rewards.ChooseRandomReward()
+        
+        local PossibleRewards = {}
+        for RewardNum = 1, MAX_POSSIBLE_REWARDS do
+            table.insert(PossibleRewards, Rewards.ChooseRandomReward())
+        end
+        
+        print(Reward)
+        Remotes.RunLootBox:FireClient(p, Reward, PossibleRewards)
     end
 end
 
@@ -49,8 +58,13 @@ function CloneCrates()
     end
 end
 
+-- // Events \\ --
+
+Remotes.GiveReward.OnServerEvent:Connect(Rewards.RunFunction)
+
 -- // Main \\ --
 
 while wait(DROP_DELAY) do
     CloneCrates()
+    break
 end

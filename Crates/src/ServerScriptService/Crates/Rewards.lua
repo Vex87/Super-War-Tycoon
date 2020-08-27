@@ -32,6 +32,14 @@ Rewards.Objects = {
     },
 }
 
+function Rewards.ChooseRandomReward()
+    return Rewards.AllRewards[math.random(#Rewards.AllRewards)]
+end
+
+function Rewards.RunFunction(p, Name)
+    Rewards.Functions[Rewards.Objects[Name].Type](p, Name)
+end
+
 function Rewards.Functions.Money(p, Name)
     local Amount = Rewards.Objects[Name].Amount
     p.leaderstats.Money.Value = p.leaderstats.Money.Value + Amount
