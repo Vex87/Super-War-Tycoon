@@ -1,28 +1,28 @@
 {
-	"name": "NewProject",
+	"name": "Crates",
 	"tree": {
 		"$className": "DataModel",
 		"ServerScriptService": {
 			"$className": "ServerScriptService",
 			"$ignoreUnknownInstances": true,
-			"$path": "Conquest-Point/src/ServerScriptService"
+			"$path": "src/ServerScriptService"
 		},
 		"ReplicatedStorage": {
 			"$className": "ReplicatedStorage",
 			"$ignoreUnknownInstances": true,
-			"$path": "Conquest-Point/src/ReplicatedStorage"
+			"$path": "src/ReplicatedStorage"
 		},
 		"StarterPlayer": {
 			"$className": "StarterPlayer",
 			"StarterPlayerScripts": {
 				"$className": "StarterPlayerScripts",
 				"$ignoreUnknownInstances": true,
-				"$path": "Conquest-Point/src/StarterPlayer/StarterPlayerScripts"
+				"$path": "src/StarterPlayer/StarterPlayerScripts"
 			},
 			"StarterCharacterScripts": {
 				"$className": "StarterCharacterScripts",
 				"$ignoreUnknownInstances": true,
-				"$path": "Conquest-Point/src/StarterPlayer/StarterCharacterScripts"
+				"$path": "src/StarterPlayer/StarterCharacterScripts"
 			}
 		}
 	}
