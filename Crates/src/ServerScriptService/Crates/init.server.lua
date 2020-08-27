@@ -1,7 +1,7 @@
 -- // Settings \\ --
 
 local DROP_DELAY = 1
-local DROP_COUNT = 4
+local DROP_COUNT = 10
 local SPAWN_DELAY = 1
 
 local ORIGINAL_POS = Vector3.new(0, 50, 0)
@@ -32,8 +32,7 @@ function Touched(NewCrate, Obj)
         for RewardNum = 1, MAX_POSSIBLE_REWARDS do
             table.insert(PossibleRewards, Rewards.ChooseRandomReward())
         end
-        
-        print(Reward)
+
         Remotes.RunLootBox:FireClient(p, Reward, PossibleRewards)
     end
 end
@@ -48,7 +47,7 @@ function CloneCrates()
         NewCrate.Parent = workspace.Debris
         NewCrate.Position = ORIGINAL_POS + Vector3.new(X, Y, Z)
         NewCrate.Rotation = Vector3.new(math.random(360), math.random(360), math.random(360))
-        
+
         NewCrate.Touched:Connect(function(Obj)
             Touched(NewCrate, Obj)
         end)
@@ -66,5 +65,4 @@ Remotes.GiveReward.OnServerEvent:Connect(Rewards.RunFunction)
 
 while wait(DROP_DELAY) do
     CloneCrates()
-    break
 end
