@@ -1,6 +1,6 @@
 -- // Settings \\ --
 
-local DROP_DELAY = 10
+local DROP_DELAY = 60
 local DROP_COUNT = 4
 local SPAWN_DELAY = 1
 

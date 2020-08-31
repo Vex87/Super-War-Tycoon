@@ -27,7 +27,7 @@ end
 
 -- // Events \\ --
 
-Chest.Notifier.Touched:Connect(function(Obj)
+Chest.Hitbox.Touched:Connect(function(Obj)
     local p = game.Players:FindFirstChild(Obj.Parent.Name)
     if p and Players[p.Name].Seconds == 0 then
 		p.leaderstats.Money.Value = p.leaderstats.Money.Value + Players[p.Name].Amount
