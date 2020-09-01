@@ -9,30 +9,18 @@ local Bottom = Chest.Bottom
 
 function Open()
     Bottom.Open:Play()
-
     Effects.Glow.Enabled = true
     Effects.Sparkles.Enabled = true
     Effects.PointLight.Enabled = true
     Effects.SpotLight.Enabled = true
-
-    Bottom.Left.AngularSpeed = 1.5
-    Bottom.Right.AngularSpeed = 1.5  
-    Bottom.Left.TargetAngle = 60
-    Bottom.Right.TargetAngle = 60   
 end
 
 function Close()
     Bottom.Close:Play()
-
     Effects.Glow.Enabled = false
     Effects.Sparkles.Enabled = false
     Effects.PointLight.Enabled = false
     Effects.SpotLight.Enabled = false
-
-    Bottom.Left.AngularSpeed = 2
-    Bottom.Right.AngularSpeed = 2  
-    Bottom.Left.TargetAngle = 180
-    Bottom.Right.TargetAngle = 180
 end
 
 function StartTimer(Duration, Amount)

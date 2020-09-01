@@ -10,6 +10,11 @@ local Remotes = game.ReplicatedStorage.Remotes.TimedChest
 local Chest = workspace.Map.TimedChest
 local Players = {}
 
+-- // Defaults \\ --
+
+Chest.Bottom.Left.TargetAngle = 60
+Chest.Bottom.Right.TargetAngle = 60  
+
 -- // Functions \\ --
 
 function StartTimer(p)
